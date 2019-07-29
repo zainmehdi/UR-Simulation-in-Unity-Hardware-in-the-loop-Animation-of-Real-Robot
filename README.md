@@ -1,6 +1,6 @@
 # UR-Simulation-in-Unity-Hardware-in-the-loop-Animation-of-Real-Robot-
 
-**All the credit for original package and controller goes to Long Qian, Shuyang Chen for creating the prefab and initial script.
+**All the credit for original package and controller goes to [Long Qian](http://longqian.me/aboutme), [Shuyang Chen](https://www.linkedin.com/in/shuyang-shawn-chen-346ab6109) for creating the prefab and initial script.
 
 Simulates UR using joint angles being published by a real robot over TCP IP 
 
