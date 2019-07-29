@@ -8,4 +8,4 @@ This fork contains a TCP server that can connect to real UR5/UR10 and some modif
 You need to publish joint angles from UR script to this server in order to replicate motion.
 
 Results on Editor:
-![capture](capture_editor.png "Capture in Unity3D Editor")
+![capture](UR.png "Capture in Unity3D Editor")
