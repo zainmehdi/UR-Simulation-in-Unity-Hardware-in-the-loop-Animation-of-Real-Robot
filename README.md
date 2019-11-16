@@ -13,7 +13,7 @@ You need to publish joint angles from UR script to this server in order to repli
 Results on Editor:
 ![capture](UR.PNG "Capture in Unity3D Editor")
 
-## Instructions for URsim
+## Instructions for URsim / Actual Robot
 ### UR Simulator
 I have used URSIM version 3.11 which can be downloaded from https://www.universal-robots.com/download/?option=18940.
 
