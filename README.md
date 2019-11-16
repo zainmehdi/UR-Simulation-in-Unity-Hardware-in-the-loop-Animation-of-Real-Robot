@@ -40,6 +40,6 @@ Download vmware from https://www.vmware.com/products/workstation-pro/workstation
   ![capture](robotnet.PNG)
   
 - Disable firewall in windows otherwise guest wont be able to communicate with the host. 
-- If everything goes well you should be able to ping back and firth between guest and the host.
+- If everything goes well you should be able to ping back and forth between guest and the host.
 
   ![capture](ping.PNG)
