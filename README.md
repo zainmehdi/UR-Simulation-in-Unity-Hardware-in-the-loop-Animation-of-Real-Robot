@@ -43,3 +43,26 @@ Download vmware from https://www.vmware.com/products/workstation-pro/workstation
 - If everything goes well you should be able to ping back and forth between guest and the host.
 
   ![capture](ping.PNG)
+  
+ ### UR Script
+ Here is a simple UR script that will get joint angles and publish it to our server. Make sure to adjust IP addresses and ports
+ accordingly.
+ 
+ '''
+  Program
+   BeforeStart
+     Script: JointFunction.script
+   Robot Program
+     MoveJ
+       Waypoint_1
+       Waypoint_2
+   Thread_1
+     Loop sockon≟ True 
+       getjointAngles()
+       Wait: 0.05
+     If sockon≟ False 
+       socket_close("sock1")
+       sockon=socket_open("192.168.102.1",5000)
+       Wait: 0.01
+ '''
+ 
