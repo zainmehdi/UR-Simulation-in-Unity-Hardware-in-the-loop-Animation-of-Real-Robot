@@ -48,7 +48,7 @@ Download vmware from https://www.vmware.com/products/workstation-pro/workstation
  Here is a simple UR script that will get joint angles and publish it to our server. Make sure to adjust IP addresses and ports
  accordingly.
  
- '''
+ ```
   Program
    BeforeStart
      Script: JointFunction.script
@@ -64,5 +64,29 @@ Download vmware from https://www.vmware.com/products/workstation-pro/workstation
        socket_close("sock1")
        sockon=socket_open("192.168.102.1",5000)
        Wait: 0.01
- '''
+ ```
+ #### jointFunction Script
+ 
+ ```
+global angles=[0,0,0,0,0,0]
+global angles_send=""
+
+sockon=socket_open("192.168.102.1",5000,"sock1")
+def getjointAngles():
+	angles=get_actual_joint_positions()
+  angles_send=str_cat(angles[0],";")
+ 	angles_send=str_cat(angles_send,angles[1])
+	angles_send=str_cat(angles_send,";")
+	angles_send=str_cat(angles_send,angles[2])
+	angles_send=str_cat(angles_send,";")
+	angles_send=str_cat(angles_send,angles[3])
+	angles_send=str_cat(angles_send,";")
+	angles_send=str_cat(angles_send,angles[4])
+	angles_send=str_cat(angles_send,";")
+	angles_send=str_cat(angles_send,angles[5])
+	sockon= socket_send_line(angles_send)
+			
+end
+
+ ```
  
