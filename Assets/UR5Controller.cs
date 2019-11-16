@@ -1,5 +1,9 @@
-﻿// Author: Long Qian
+// Author: Long Qian
 // Email: lqian8@jhu.edu
+
+// Network supplementation and UR Script Integration by Zain
+// Email : zainmehdi31@gmail.com
+// Special thanks to Bonghan Kim for help in command mapping
 
 using UnityEngine;
 using System.Collections;
