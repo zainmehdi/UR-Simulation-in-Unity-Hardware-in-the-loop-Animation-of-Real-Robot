@@ -160,12 +160,13 @@ public class UR5Controller : MonoBehaviour {
                             string clientMessage = Encoding.ASCII.GetString(incommingData, 0, incommingData.Length);
                             buffer = clientMessage.Split(';');
 
-                            jointValues[0] = (float)(Convert.ToDouble(buffer[0]))*(-1);
-                            jointValues[1] = (float)(Convert.ToDouble(buffer[1]))*(-1)-90f;
-                            jointValues[2] = -1f*(float)(Convert.ToDouble(buffer[2]));
-                            jointValues[3] = (float)(Convert.ToDouble(buffer[3])) * (-1) - 90f;
-                            jointValues[4] = (float)(Convert.ToDouble(buffer[4]));
-                            jointValues[5] = (float)(Convert.ToDouble(buffer[5]));
+                            jointValues[0] = (float)((Convert.ToDouble(buffer[0])*(-1))*180/Math.PI);
+                            jointValues[1] = (float)(((Convert.ToDouble(buffer[1]))*(-1)) * 180 / Math.PI - 90f);
+                            jointValues[2] = -1f*(float)((Convert.ToDouble(buffer[2])) * 180 / Math.PI);
+                            jointValues[3] = (float)((Convert.ToDouble(buffer[3])) * 180 / Math.PI) * (-1) - 90f;
+                            jointValues[4] = (float)((Convert.ToDouble(buffer[4])) * 180 / Math.PI);
+                            jointValues[5] = (float)((Convert.ToDouble(buffer[5])) * 180 / Math.PI);
+
 
 
                             //Debug.Log("Angle 3" + jointValues[2]);
