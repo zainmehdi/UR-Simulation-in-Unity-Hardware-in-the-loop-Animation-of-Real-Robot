@@ -74,7 +74,7 @@ global angles_send=""
 sockon=socket_open("192.168.102.1",5000,"sock1")
 def getjointAngles():
 	angles=get_actual_joint_positions()
-  angles_send=str_cat(angles[0],";")
+  	angles_send=str_cat(angles[0],";")
  	angles_send=str_cat(angles_send,angles[1])
 	angles_send=str_cat(angles_send,";")
 	angles_send=str_cat(angles_send,angles[2])
