@@ -1,0 +1,75 @@
+def SocketTest():
+  set_tcp(p[0.0,0.0,0.0,0.0,0.0,0.0])
+  set_payload(0.0)
+  set_standard_analog_input_domain(0, 1)
+  set_standard_analog_input_domain(1, 1)
+  set_tool_analog_input_domain(0, 1)
+  set_tool_analog_input_domain(1, 1)
+  set_analog_outputdomain(0, 0)
+  set_analog_outputdomain(1, 0)
+  set_input_actions_to_default()
+  set_tool_voltage(0)
+  set_safety_mode_transition_hardness(1)
+  set_gravity([0.0, 0.0, 9.82])
+  $ 1 "BeforeStart"
+  $ 2 "Script: JointFunction.script"
+  global angles=[0,0,0,0,0,0]
+  global angles_send=""
+  
+  sockon=socket_open("192.168.102.1",5000,"sock1")
+  def getjointAngles():
+  	angles=get_actual_joint_positions()
+                    angles_send=str_cat(angles[0],";")
+   	angles_send=str_cat(angles_send,angles[1])
+  	angles_send=str_cat(angles_send,";")
+  	angles_send=str_cat(angles_send,angles[2])
+  	angles_send=str_cat(angles_send,";")
+  	angles_send=str_cat(angles_send,angles[3])
+  	angles_send=str_cat(angles_send,";")
+  	angles_send=str_cat(angles_send,angles[4])
+  	angles_send=str_cat(angles_send,";")
+  	angles_send=str_cat(angles_send,angles[5])
+  	sockon= socket_send_line(angles_send)
+  
+  
+  end
+  $ 7 "Thread_1"
+  thread Thread_1():
+    while (True):
+      $ 8 "Loop sockon≟ True "
+      thread Thread_while_8():
+        while (True):
+          $ 9 "getjointAngles()"
+          getjointAngles()
+          $ 10 "Wait: 0.05"
+          sleep(0.05)
+        end
+      end
+      if (sockon ==   True  ):
+        global thread_handler_8=run Thread_while_8()
+        while (sockon ==   True  ):
+          sync()
+        end
+        kill thread_handler_8
+      end
+      $ 11 "If sockon≟ False "
+      if (sockon ==   False  ):
+        $ 12 "socket_close('sock1')"
+        socket_close("sock1")
+        $ 13 "sockon=socket_open('192.168.102.1',5000)"
+        sockon=socket_open("192.168.102.1",5000)
+        $ 14 "Wait: 0.01"
+        sleep(0.01)
+      end
+    end
+  end
+  threadId_Thread_1 = run Thread_1()
+  while (True):
+    $ 3 "Robot Program"
+    $ 4 "MoveJ"
+    $ 5 "Waypoint_1"
+    movej([6.938893903907228E-18, -1.7271001974688929, -2.2029998938189905, -0.8079999128924769, 1.5951000452041626, -0.03099996248354131], a=1.3962634015954636, v=1.0471975511965976)
+    $ 6 "Waypoint_2"
+    movej([1.5707963705062866, -1.7271001974688929, -2.2029998938189905, -0.8079999128924769, 1.5951000452041626, -0.03099996248354131], a=1.3962634015954636, v=1.0471975511965976)
+  end
+end
