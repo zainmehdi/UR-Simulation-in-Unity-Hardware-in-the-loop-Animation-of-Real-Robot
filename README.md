@@ -28,12 +28,13 @@ Download vmware from https://www.vmware.com/products/workstation-pro/workstation
   
   ![capture](NetworkAdapter.PNG)
   
-- Open network adapter's properties in Windows and set static ip address as follows:
-  Check ipv4 address of guest in vmware using ifconfig. 
+- Open network adapter's properties in Windows and set static ip address of VMnet8 adapter.   In my case it was   
+ "192.168.102.128". I set ip of VMnet8 as "192.168.102.1" with same subnet mask. This will be the IP of your server.
+ 
+- Check ipv4 address of guest in vmware using ifconfig. 
   
   ![capture](guestIP.PNG)
   
-  In my case it was "192.168.102.128". I set ip of VMnet8 as "192.168.102.1" with same subnet mask. This will be the IP of your server.
 - Open URsim10/URsim5 and check robots network setting in "Setup Robot" -> Network. Choose DHCP. It will assign the same ip address to   
   the robot as that of guest (192.168.102.128) in my case.
   
