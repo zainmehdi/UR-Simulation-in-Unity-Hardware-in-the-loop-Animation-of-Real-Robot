@@ -6,7 +6,7 @@ This fork Simulates UR using joint angles being published by a real robot over T
 - Additions and Modifications are as follows:
 #### - TCP server that can connect to real UR5/UR10
 #### - Some modifications in the joint angle mapping to replicate actual robot.
-(*Thank you Bonghan Kim for his assistance)    
+(*Thanks to Bonghan Kim for his assistance)    
 #### - Buttons for camera rotation.
 
 You need to publish joint angles from UR script to this server in order to replicate motion.
