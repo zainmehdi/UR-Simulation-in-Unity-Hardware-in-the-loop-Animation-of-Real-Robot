@@ -1,7 +1,7 @@
-// Author: Long Qian
+﻿// Author: Long Qian
 // Email: lqian8@jhu.edu
 
-// Network supplementation and UR Script Integration by Zain
+// Network supplemantation by Zain
 // Email : zainmehdi31@gmail.com
 // Special thanks to Bonghan Kim for help in command mapping
 
@@ -70,6 +70,8 @@ public class UR5Controller : MonoBehaviour {
         tcpListenerThread.Start();
 
         start.onClick.AddListener(TaskOnClick);
+
+        
 
 
     }
@@ -172,7 +174,6 @@ public class UR5Controller : MonoBehaviour {
                             jointValues[5] = (float)((Convert.ToDouble(buffer[5])) * 180 / Math.PI);
 
 
-
                             //Debug.Log("Angle 3" + jointValues[2]);
                         }
                     }
@@ -185,7 +186,7 @@ public class UR5Controller : MonoBehaviour {
         }
     }
     /// <summary> 	
-    /// Send message to client using socket connection. 	
+    /// Send message to client using socket connection. 	just a test
     /// </summary> 	
     private void SendMessage()
     {
