@@ -8,7 +8,7 @@ This fork Simulates UR using joint angles being published by a real robot over T
 #### - Some modifications in the joint angle mapping to replicate actual robot.
 (*Thanks to Bonghan Kim for his assistance)    
 #### - Buttons for camera rotation.
-#### - Guide for setting up URSIM for simulation
+#### - Guide for setting up URSIM for simulation ( Would like to Thank Jeong Il Hwan for his guidance)
 
 You need to publish joint angles from UR script to this server in order to replicate motion.
 
